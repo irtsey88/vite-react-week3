@@ -1,6 +1,6 @@
 import { createHashRouter } from "react-router-dom";
 
-import FrontendLayout from "./layout/Frontendlayout";
+import FrontendLayout from "./layout/FrontendLayout";
 import Home from "./views/front/Home";
 import Products from "./views/front/Products";
 import SingleProduct from "./views/front/SingleProduct";
