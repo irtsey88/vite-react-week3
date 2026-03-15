@@ -34,7 +34,4 @@ export const router = createHashRouter([
     path: "*", // 404 頁面
     element: <NotFound />,
   },
-  {
-    basename: "/vite-react-week3",
-  }
 ]);
