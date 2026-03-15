@@ -77,32 +77,19 @@ function App() {
   }, []);
 
   /* ================= Modal 控制 ================= */
-  const openModal = (type, item) => {
-    console.log(item);
-    setModalType(type);
-    setTemplateProduct((pre) => ({
-      ...pre,
-      ...item,
-    }));
-    itemModalRef.current?.show();
-  };
+const openModal = (type, item) => {
+  setModalType(type);
+  setTemplateProduct({
+    ...INITIAL_TEMPLATE_DATA,
+    ...item,
+  });
+  itemModalRef.current?.show();
+};
 
   const closeModal = () => {
     itemModalRef.current?.hide();
   };
 
-  // const onConfirm = async () => {
-  //   try {
-  //     await axios.post(`${API_BASE}/api/${API_PATH}/admin/product`, {
-  //       data: templateProduct,
-  //     });
-
-  //     await getProducts();
-  //     closeModal();
-  //   } catch (error) {
-  //     console.log("新增產品失敗", error.response);
-  //   }
-  // };
 
   /* ================= render ================= */
   return (

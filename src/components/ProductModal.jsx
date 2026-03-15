@@ -35,6 +35,7 @@ function ProductModal({ modalType, templateProduct, closeModal, getProducts,}) {
       closeModal();
     } catch (error) {
       console.log(error.response);
+      alert(error?.response?.data?.message || "商品操作失敗");
     }
   };
 
@@ -48,6 +49,7 @@ function ProductModal({ modalType, templateProduct, closeModal, getProducts,}) {
       closeModal();
     } catch (error) {
       console.log(error.response);
+      alert(error?.response?.data?.message || "刪除商品失敗");
     }
   };
 
@@ -68,6 +70,7 @@ function ProductModal({ modalType, templateProduct, closeModal, getProducts,}) {
         ...pre,
         imageUrl: response.data.imageUrl,
       }));
+      e.target.value = "";
     } catch (error) {
       console.log("上傳失敗", error.response);
     }

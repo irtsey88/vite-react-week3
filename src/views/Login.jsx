@@ -6,7 +6,7 @@ const API_PATH = import.meta.env.VITE_API_PATH;
 
 function Login({getProducts, setIsAuth}) {
   const [formData, setFormData] = useState({
-    username: "bastar_dize@icloud.com",
+    username: "",
     password: "",
   });
 
