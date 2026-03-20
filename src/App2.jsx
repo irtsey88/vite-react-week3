@@ -23,7 +23,7 @@ const INITIAL_TEMPLATE_DATA = {
   imagesUrl: [],
 };
 
-function App() {
+function App2() {
   /* ================= state ================= */
 
   const [isAuth, setIsAuth] = useState(false);
@@ -169,4 +169,4 @@ const openModal = (type, item) => {
     </>
   );
 }
-export default App;
+export default App2;
