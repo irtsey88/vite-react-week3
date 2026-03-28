@@ -13,10 +13,9 @@ function Cart() {
       try {
         const response = await axios.get(`${API_BASE}/api/${API_PATH}/cart`);
 
-        console.log(response.data.data);
         setCart(response.data.data);
       } catch (error) {
-        console.log(error.response);
+        console.error(error.response);
       }
     };
 
@@ -40,7 +39,7 @@ function Cart() {
       const cartResponse = await axios.get(`${API_BASE}/api/${API_PATH}/cart`);
       setCart(cartResponse.data.data);
     } catch (error) {
-      console.log(error.response);
+      console.error(error.response)
     }
   };
 
@@ -55,7 +54,7 @@ function Cart() {
       const cartResponse = await axios.get(`${API_BASE}/api/${API_PATH}/cart`);
       setCart(cartResponse.data.data);
     } catch (error) {
-      console.log(error.response);
+      console.error(error.response)
     }
   };
 

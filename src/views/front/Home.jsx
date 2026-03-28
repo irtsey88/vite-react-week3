@@ -1,7 +1,13 @@
+import "../../assets/pages/Home.scss";
+
 function Home() {
   return (
-    <div>
-      <h1>首頁</h1>
+    <div className="home-banner">
+      <img
+        src="./home.png"
+        alt="banner"
+        className="home-img"
+      />
     </div>
   );
 }

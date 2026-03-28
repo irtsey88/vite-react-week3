@@ -5,6 +5,8 @@ import Home from "./views/front/Home";
 import Products from "./views/front/Products";
 import SingleProduct from "./views/front/SingleProduct";
 import Cart from "./views/front/Cart";
+import Checkout from "./views/front/Checkout";
+import Login from "./views/front/Login";
 import NotFound from "./views/front/NotFound";
 
 export const router = createHashRouter([
@@ -21,12 +23,20 @@ export const router = createHashRouter([
         element: <Products />,
       },
       {
-        path: "product/:id", // 動態參數
+        path: "product/:id", 
         element: <SingleProduct />,
       },
       {
         path: "cart",
         element: <Cart />,
+      },
+      {
+        path: "checkout",
+        element: <Checkout />,
+      },
+      {
+        path: "login",
+        element: <Login />,
       },
     ],
   },
