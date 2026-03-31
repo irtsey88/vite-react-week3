@@ -20,7 +20,7 @@ function Login({ getProducts, setIsAuth }) {
 
   const [isLoading, setIsLoading] = useState(false);
 
-  const navigate = useNavigate();
+  const navigate = useNavigate(); // 登入成功後導向後台頁面
   const onSubmit = async (formData) => {
     setIsLoading(true);
 
@@ -33,11 +33,13 @@ function Login({ getProducts, setIsAuth }) {
 
       axios.defaults.headers.common.Authorization = token;
 
-      navigate("/backoffice"); 
+      navigate("/admin/product");
     } catch (error) {
       console.log(error);
 
       alert("登入失敗，請確認帳號密碼");
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -61,6 +63,10 @@ function Login({ getProducts, setIsAuth }) {
                 placeholder="請輸入 Email"
                 {...register("username", {
                   required: "Email 為必填",
+                  pattern: {
+        value: /^\S+@\S+\.\S+$/,
+        message: "請輸入正確 Email 格式 (需包含 @ 與 . )",
+      },
                 })}
               />
 
@@ -84,6 +90,10 @@ function Login({ getProducts, setIsAuth }) {
                 placeholder="請輸入密碼"
                 {...register("password", {
                   required: "密碼為必填",
+                  minLength: {
+                    value: 6,
+                    message: "密碼至少需要 6 碼",
+                  },
                 })}
               />
 

@@ -7,8 +7,11 @@ import SingleProduct from "./views/front/SingleProduct";
 import Cart from "./views/front/Cart";
 import Checkout from "./views/front/Checkout";
 import Login from "./views/front/Login";
-import BackOffice from "./views/front/BackOffice";
+import BackOffice from "./views/admin/AdminProducts";
 import NotFound from "./views/front/NotFound";
+import AdminLayout from "./layout/AdminLayout";
+import AdminProducts from "./views/admin/AdminProducts";
+import AdminOrders from "./views/admin/AdminOrders";
 
 export const router = createHashRouter([
   {
@@ -24,7 +27,7 @@ export const router = createHashRouter([
         element: <Products />,
       },
       {
-        path: "product/:id", 
+        path: "product/:id",
         element: <SingleProduct />,
       },
       {
@@ -39,15 +42,26 @@ export const router = createHashRouter([
         path: "login",
         element: <Login />,
       },
-    
     ],
   },
-   {
-    path: "/backoffice", //
-    element: <BackOffice />, 
-  },
+
   {
-    path: "*", // 404 頁面
+    path: "admin",
+    element: <AdminLayout />,
+    children: [
+      {
+        path: "product",
+        element: <AdminProducts />,
+      },
+      {
+        path: "order",
+        element: <AdminOrders />,
+      },
+    ],
+  },
+
+  {
+    path: "*",
     element: <NotFound />,
   },
 ]);

@@ -1,10 +1,9 @@
 import { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import * as bootstrap from "bootstrap";
-import "../../assets/style.css";
+import { useNavigate } from "react-router-dom";
 import ProductModal from "../../components/ProductModal";
 import Pagination from "../../components/Pagination";
-import { useNavigate } from "react-router-dom";
 
 const API_BASE = import.meta.env.VITE_API_BASE;
 const API_PATH = import.meta.env.VITE_API_PATH;
@@ -23,7 +22,7 @@ const INITIAL_TEMPLATE_DATA = {
   imagesUrl: [],
 };
 
-function BackOffice() {
+function AdminProducts() {
   /* ================= state ================= */
   const navigate = useNavigate();
   const [products, setProducts] = useState([]);
@@ -174,4 +173,4 @@ function BackOffice() {
     </>
   );
 }
-export default BackOffice;
+export default AdminProducts;
