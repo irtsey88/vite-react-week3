@@ -7,6 +7,7 @@ import SingleProduct from "./views/front/SingleProduct";
 import Cart from "./views/front/Cart";
 import Checkout from "./views/front/Checkout";
 import Login from "./views/front/Login";
+import BackOffice from "./views/front/BackOffice";
 import NotFound from "./views/front/NotFound";
 
 export const router = createHashRouter([
@@ -38,7 +39,12 @@ export const router = createHashRouter([
         path: "login",
         element: <Login />,
       },
+    
     ],
+  },
+   {
+    path: "/backoffice", //
+    element: <BackOffice />, 
   },
   {
     path: "*", // 404 頁面
