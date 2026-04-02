@@ -1,9 +1,11 @@
 import { useState, useEffect, useRef } from "react";
+import { useDispatch } from "react-redux";
 import axios from "axios";
 import * as bootstrap from "bootstrap";
 import { useNavigate } from "react-router-dom";
 import ProductModal from "../../components/ProductModal";
 import Pagination from "../../components/Pagination";
+import { createAsyncMessage } from "../../slice/messageSlice";
 
 const API_BASE = import.meta.env.VITE_API_BASE;
 const API_PATH = import.meta.env.VITE_API_PATH;
@@ -30,6 +32,7 @@ function AdminProducts() {
   const [modalType, setModalType] = useState("");
   const [pagination, setPagination] = useState({});
   const itemModalRef = useRef(null);
+  const dispatch = useDispatch();
 
   const handleLogout = () => {
     document.cookie =
@@ -50,6 +53,7 @@ function AdminProducts() {
       setPagination(res.data.pagination);
     } catch (error) {
       console.log(error.response);
+      dispatch(createAsyncMessage(error.response.data));
     }
   };
 
